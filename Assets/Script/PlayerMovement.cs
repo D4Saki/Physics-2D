@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed; //public variable uses Pascal casing
-    float move;  //private variable
+    Rigidbody2D rb2d; //private variable
 
-    Rigidbody2D rb2d;
+    float move; //store Input from player
+    [SerializeField] float speed;
 
     void Start()
     {
@@ -14,9 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        move = Input.GetAxis("Horizontal"); //x - axis
+        move = Input.GetAxis("Horizontal");
 
-        //use rigidbody2d to move left and right (x-axis)
-        rb2d.linearVelocity = new Vector2(move * Speed, rb2d.linearVelocity.y);
+        rb2d.linearVelocity = new Vector2(move * speed, rb2d.linearVelocity.y);
     }
 }
